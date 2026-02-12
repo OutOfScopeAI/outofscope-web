@@ -1,0 +1,260 @@
+:root{
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #5b5b5b;
+  --card: #f7f7f8;
+  --border: rgba(0,0,0,0.08);
+  --violet: #7c3aed;
+  --violet2: rgba(124,58,237,0.16);
+  --shadow: 0 10px 30px rgba(0,0,0,0.06);
+  --radius: 18px;
+  --max: 1120px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ padding:0; margin:0; background:var(--bg); color:var(--fg); }
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  line-height: 1.4;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+header nav a:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+footer a{
+  color: var(--muted);
+  text-decoration: none;
+}
+footer a:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.container{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+.section{ padding: 72px 0; }
+.sectionTitle{
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.sectionLead{
+  margin: 0 0 28px;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.cardGrid{
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.p24{ padding: 24px; }
+.p28{ padding: 28px; }
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor:pointer;
+  font-weight: 600;
+}
+.btnPrimary{
+  border-color: rgba(124,58,237,0.35);
+  background: linear-gradient(180deg, #ffffff 0%, rgba(124,58,237,0.08) 100%);
+}
+.btnPrimary:hover{ box-shadow: 0 10px 24px rgba(124,58,237,0.12); }
+.btnGhost:hover{ background: rgba(0,0,0,0.03); }
+
+.hr{
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+@media (max-width: 860px){
+  .section{ padding: 56px 0; }
+  .sectionTitle{ font-size: 24px; }
+}
+/* Responsive grid helpers */
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.span-6 { grid-column: span 6; }
+.span-12 { grid-column: span 12; }
+
+@media (max-width: 860px){
+  .m-span-12 { grid-column: span 12 !important; }
+}
+.prose h2 {
+  margin-top: 36px;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.prose p {
+  margin: 12px 0;
+  color: #222;
+}
+
+.prose ul {
+  margin-left: 18px;
+}
+
+.prose blockquote {
+  margin: 20px 0;
+  padding-left: 14px;
+  border-left: 3px solid var(--violet);
+  color: var(--muted);
+  font-style: italic;
+}
+
+.prose code {
+  background: #f4f4f5;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 90%;
+}
+/* Editorial list on home */
+
+@media (max-width: 640px) {
+  .editorialRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.editorialRow{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.editorialRow:hover{
+  background: rgba(0,0,0,0.02);
+}
+.editorialRow > div:last-child > div:first-child{
+  text-decoration: none;
+}
+@media (max-width: 640px){
+  .editorialRow{ grid-template-columns: 1fr; }
+}
+/* Report-like typography */
+.kicker{
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.h2{
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.p{
+  margin: 0 0 14px 0;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 78ch;
+}
+
+.bullets{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.bullets li{
+  margin: 10px 0;
+}
+.bTitle{
+  color: #111;
+  font-weight: 700;
+}
+
+.signature{
+  border-left: 2px solid var(--border);
+  padding-left: 14px;
+  margin-top: 10px;
+}
+.sigName{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.sigRole{
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.sigText{
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+/* MDX/Blog images: centered + responsive + clean */
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 18px auto;         /* center */
+  border-radius: 14px;
+}
+
+.prose p > img {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+/* If you use <figure> in MDX */
+.prose figure {
+  margin: 22px 0;
+}
+
+.prose figure img {
+  margin: 0 auto;
+}
+
+.prose figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Optional: keep very wide images from looking awkward */
+.prose img {
+  max-height: 520px;
+  object-fit: contain;
+}
