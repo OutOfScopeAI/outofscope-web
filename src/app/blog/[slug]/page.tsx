@@ -1,65 +1,59 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+import { MDXRemote } from "next-mdx-remote/rsc";
+
 import Tweet from "@/components/Tweet";
+
+export const runtime = "nodejs"; // <-- KRİTİK: Edge yerine Node
 
 const CONTENT_PATH = path.join(process.cwd(), "content/blog");
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 };
 
-export default async function BlogPost({ params }: Props) {
-  const { slug } = await params;
-
+function getPost(slug: string) {
   const filePath = path.join(CONTENT_PATH, `${slug}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
 
-  if (!fs.existsSync(filePath)) notFound();
+  const raw = fs.readFileSync(filePath, "utf8");
+  const { content, data } = matter(raw);
 
-  const source = fs.readFileSync(filePath, "utf8");
-  const { content, data } = matter(source);
-
-  if (data.published === false) notFound();
-
-  return (
-    <article className="section">
-      <div className="container prose" style={{ maxWidth: 800 }}>
-        <h1>{data.title}</h1>
-
-        {data.description && (
-          <p style={{ color: "var(--muted)" }}>
-            {data.description}
-          </p>
-        )}
-
-        <MDXRemote
-  source={content}
-  components={{
-    Tweet,
-  }}
-/>
-      </div>
-    </article>
-  );
-}
-
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const filePath = path.join(CONTENT_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(filePath, "utf8");
-  const { data } = matter(source);
+  if (data?.published === false) return null;
 
   return {
-  title: data.title,
-  description: data.description,
-  alternates: {
-    canonical: `https://outofscope.ai/blog/${params.slug}`,
-  },
-  openGraph: {
-    locale: "tr_TR",
-    type: "article",
-  },
-};
+    slug,
+    content,
+    frontmatter: {
+      title: String(data?.title ?? slug),
+      description: String(data?.description ?? ""),
+      date: String(data?.date ?? ""),
+      category: String(data?.category ?? ""),
+    },
+  };
+}
 
+export default async function BlogPost({ params }: Props) {
+  const post = getPost(params.slug);
+  if (!post) notFound();
+
+  return (
+    <article className="container prose" style={{ paddingTop: 28, paddingBottom: 56 }}>
+      <h1 style={{ marginBottom: 8 }}>{post.frontmatter.title}</h1>
+      {post.frontmatter.description ? (
+        <p style={{ marginTop: 0, color: "var(--muted)" }}>{post.frontmatter.description}</p>
+      ) : null}
+
+      <div style={{ height: 20 }} />
+
+      <MDXRemote
+        source={post.content}
+        components={{
+          Tweet,
+        }}
+      />
+    </article>
+  );
 }

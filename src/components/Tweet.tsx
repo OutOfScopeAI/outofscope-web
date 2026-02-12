@@ -2,10 +2,6 @@
 
 import { Tweet as ReactTweet } from "react-tweet";
 
-type Props = {
-  id: string;
-};
-
-export default function Tweet({ id }: Props) {
+export default function Tweet({ id }: { id: string }) {
   return <ReactTweet id={id} />;
 }
