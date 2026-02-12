@@ -6,13 +6,20 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 
 import Tweet from "@/components/Tweet";
 
-export const runtime = "nodejs"; // <-- KRİTİK: Edge yerine Node
+export const runtime = "nodejs";
+export const revalidate = 3600; // 1 saat (istersen değiştir)
 
-const CONTENT_PATH = path.join(process.cwd(), "content/blog");
+const CONTENT_PATH = path.join(process.cwd(), "content", "blog");
 
-type Props = {
-  params: { slug: string };
-};
+export async function generateStaticParams() {
+  if (!fs.existsSync(CONTENT_PATH)) return [];
+  return fs
+    .readdirSync(CONTENT_PATH)
+    .filter((f) => f.endsWith(".mdx"))
+    .map((f) => ({ slug: f.replace(/\.mdx$/, "") }));
+}
+
+type Props = { params: { slug: string } };
 
 function getPost(slug: string) {
   const filePath = path.join(CONTENT_PATH, `${slug}.mdx`);
@@ -24,13 +31,10 @@ function getPost(slug: string) {
   if (data?.published === false) return null;
 
   return {
-    slug,
     content,
     frontmatter: {
       title: String(data?.title ?? slug),
       description: String(data?.description ?? ""),
-      date: String(data?.date ?? ""),
-      category: String(data?.category ?? ""),
     },
   };
 }
@@ -48,12 +52,7 @@ export default async function BlogPost({ params }: Props) {
 
       <div style={{ height: 20 }} />
 
-      <MDXRemote
-        source={post.content}
-        components={{
-          Tweet,
-        }}
-      />
+      <MDXRemote source={post.content} components={{ Tweet }} />
     </article>
   );
 }
