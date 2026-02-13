@@ -3,18 +3,36 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FixedMailCTA from "@/components/FixedMailCTA";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: { default: "OOS — Intelligence beyond boundaries", template: "%s — OOS" },
-  description: "Out of Scope AI Labs — Intelligence beyond boundaries.",
   metadataBase: new URL("https://outofscope.ai"),
+  title: { default: "OOS — Intelligence beyond boundaries", template: "%s — OOS" },
+  description:
+    "Akademik derinliği ölçeklenebilir sistemlere dönüştürüyoruz. Bilgisayarlı görü, büyük dil modelleri ve ses işleme üzerine uzmanlaşmış, araştırma odaklı yapay zeka laboratuvarı.",
+  keywords: [
+    "AI Labs",
+    "Machine Learning",
+    "Computer Vision",
+    "LLM",
+    "Audio Processing",
+    "Vibe Coding",
+    "Yapay Zeka",
+    "Yapay Zeka Laboratuvarı",
+    "Görüntü İşleme",
+    "Doğal Dil İşleme",
+    "Ses İşleme",
+    "Yapay Zeka Danışmanlığı",
+    "Akademik Araştırma ve Geliştirme",
+    "Türkiye AI",
+  ],
   openGraph: {
     title: "OOS — Intelligence beyond boundaries",
     description: "Out of Scope AI Labs.",
     url: "https://outofscope.ai",
     siteName: "OOS",
     type: "website",
-    images: ["/opengraph-image"],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -32,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <FixedMailCTA />
+        <Analytics />
       </body>
     </html>
   );
