@@ -21,7 +21,7 @@ export async function generateStaticParams() {
     .map((f) => ({ slug: f.replace(/\.mdx$/, "") }));
 }
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 function getPost(slug: string) {
   const filePath = path.join(CONTENT_PATH, `${slug}.mdx`);
@@ -42,7 +42,9 @@ function getPost(slug: string) {
 }
 
 export default async function BlogPost({ params }: Props) {
-  const post = getPost(params.slug);
+  const { slug } = await params;
+  const post = getPost(decodeURIComponent(slug));
+
   if (!post) notFound();
 
   return (
