@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -7,7 +10,6 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Tweet from "@/components/Tweet";
 
 export const runtime = "nodejs";
-export const revalidate = 3600; // 1 saat (istersen değiştir)
 
 const CONTENT_PATH = path.join(process.cwd(), "content", "blog");
 
