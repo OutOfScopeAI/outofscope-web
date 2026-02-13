@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "Türkiye AI",
   ],
   openGraph: {
-    title: "OOS — Intelligence beyond boundaries",
-    description: "Out of Scope AI Labs.",
+    title: "OOS AI Labs. — Intelligence beyond boundaries",
+    description: "Akademik derinliği üretim standartlarına taşıyan, Yapay Zeka (AI) destekli kurumsal uygulamaları ve sistem tasarımı odaklı araştırma laboratuvarı.",
     url: "https://outofscope.ai",
     siteName: "OOS",
     type: "website",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OOS — Intelligence beyond boundaries",
-    description: "Out of Scope AI Labs.",
+    title: "OOS AI Labs. — Intelligence beyond boundaries",
+    description: "Akademik derinliği üretim standartlarına taşıyan, Yapay Zeka (AI) destekli kurumsal uygulamaları ve sistem tasarımı odaklı araştırma laboratuvarı.",
     images: ["/opengraph-image"],
   },
   icons: {
