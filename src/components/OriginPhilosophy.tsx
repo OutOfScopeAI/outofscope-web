@@ -60,14 +60,7 @@ export default function OriginPhilosophy() {
           </div>
 
           <div className="pt-12 mt-16 border-t border-slate-100">
-  <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-6">
-    İş Birliği / Collaboration
-  </h2>
-  <p className="text-lg text-slate-600 font-light leading-relaxed max-w-2xl">
-    Laboratuvarımız, akademik titizliği endüstriyel hızla birleştiren projeler için 
-    stratejik bir partner olarak konumlanmaktadır. Potansiyel projeler, teknik danışmanlık 
-    veya akademik iş birlikleri için doğrudan iletişim kurabilirsiniz.
-  </p>
+ 
   <div className="mt-8">
     <a 
       href="mailto:hello@outofscope.ai" 

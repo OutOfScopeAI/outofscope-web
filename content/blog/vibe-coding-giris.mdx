@@ -1,6 +1,6 @@
 ---
 title: "Vibe Kodlama Nedir? Yazılımda Yeni Bir Soyutlama Katmanı"
-description: "Vibe Coding kavramını, akademik derinlik ve üretim standartlarıyla inceliyoruz. Karpathy'den bugüne yazılımın geleceği."
+description: "Vibe Coding kavramını, akademik derinlik ve üretim standartlarıyla inceliyoruz."
 date: "2026-02-07"
 published: true
 category: "vibe-coding"
@@ -10,11 +10,11 @@ category: "vibe-coding"
 
 # Teoriyi Üretime Dönüştürmek
 
-Mühendisler neden günlerinin büyük bölümünü tekrar eden kalıp (boilerplate) kodları yazarak geçiriyor? Yazılım geliştirme dünyası, **Büyük Dil Modelleri (LLM)** sayesinde benzeri görülmemiş bir dönüşümün eşiğinde. 2024’ün başında "gelişmiş otomatik tamamlama" olan AI, 2025'te "otonom ajan" evresine geçti. Yazılımcı artık direksiyon başındaki sürücüden çok, yapay zekâya niyet bildiren bir **orkestra şefi** konumuna evriliyor.
+Yazılım geliştirme dünyası, **Büyük Dil Modelleri (LLM)** sayesinde benzeri görülmemiş bir dönüşümün eşiğinde. 2024’ün başında yapay zekâ destekli programlama, gelişmiş bir kod tamamlama özelliği gibiydi; modeller sizin yazdıklarınızı otomatik olarak tamamlayarak zaman kazandırıyordu. Fakat 2025’e geldiğimizde, tek bir istem (prompt) ile istenilen görevi kendi başına çözebilen, çok dosyalı çözümler üreten kısmen otonom modeller ortaya çıktı. Yazılımcı artık daha çok yapay zekâya ne yapması gerektiğini söyleyen ve sonucu gözden geçiren bir konuma evriliyor, adeta orkestra yöneten bir **orkestra şefi** konumu. Bu yeni yaklaşım teknoloji dünyasında vibe coding (vibe kodlama) adıyla anılıyor.
 
 ## Nedir bu Vibe Coding?
 
-Terim, Şubat 2025'te Andrej Karpathy’nin yazılım camiasında yankı uyandıran şu tespitiyle gündeme geldi:
+Terim, Şubat 2025'te Andrej Karpathy’nin yazılım camiasında yankı uyandıran şu tespitiyle gündeme geldi;
 
 <Tweet id="1886192184808149383" />
 
@@ -25,9 +25,9 @@ Karpathy’nin kastettiği basitçe şuydu: Bir AI kodlama aracını kullanın, 
 
 ### Peki, Neden Şimdi?
 
-Yapay zekânın kod yazma serüveni son birkaç ayda bir faz değişimi geçirdi. 2025 başı itibariyle LLM’ler "tamamlama" döneminden **"anlama ve yönetme"** dönemine geçti. IEEE Spectrum’un raporlarına göre, AI araçlarının hata ayıklayan ve tüm kod tabanını yöneten ajanlara evrilmesi şaşırtıcı derecede hızlı gerçekleşti.
+Yapay zekânın kod yazma serüveni son birkaç ayda adeta bir faz değişimi geçirdi. Yeni nesil araçlar artık bütün projeyi analiz edebiliyor, birden fazla dosyada değişiklik yapabiliyor, testleri çalıştırıp hataları kendi kendine düzeltebiliyor gibi görünüyor. Gerçekten de, 2025 başlarında ortaya çıkan bu yeni kabiliyet dalgası, yazılım ekiplerini yeniden yapılanmaya zorluyor.
 
-Bu sıçramanın ardındaki itici güç, genişleyen bağlam pencereleri ve "akıl yürütme" (reasoning) yetenekleridir. Thoughtworks uzmanları, **Cursor, Cline ve Windsurf** gibi araçların bu "denetimli ajan" modlarını yaygınlaştırdığını; altı ay önce imkansız görülen çoklu dosya değişikliklerinin artık sıradan hale geldiğini belirtiyor.
+Peki bu sıçramanın ardındaki itici güç ne? Birincisi, LLM mimarilerindeki gelişmeler sayesinde modeller artık çok daha geniş **bağlam pencereleri** ve **akıl yürütme** (reasoning) yetenekleriyle donatılmalarıdır. Bu sayede sadece siz kod yazarken sonraki satırı tahmin etmekle kalmıyor, verilen yüksek seviyeli bir hedefe ulaşmak için gerekli adımları planlayıp uygulamaya geçebiliyorlar. İkincisi, AI/YZ ile etkileşim yöntemlerimiz değişti: chat tabanlı programlama dediğimiz yaklaşımda geliştirici ile AI arasında süregelen bir diyalog kuruluyor. Geliştirici komutları veriyor, AI çeşitli dosyalara kod ekliyor, terminal komutlarını çalıştırıyor, testleri yürütüp başarısız olursa hemen düzeltmeye girişiyor. Kodlama asistanları adeta bir “ortak developer” gibi davranmaya başladılar. Dolayısı ile kısa zaman öncesine kadar sadece birkaç satır öneren yardımcılar, şimdi çoklu dosya değişikliklerini ve yinelemeli düzeltmeleri kendi başlarına yapar hale geldi. Yazılımcı bu döngüde her adımı elle yapmaktansa, sonuçları yöneten ve gerektiğinde müdahale eden konumunda. Bu yüzden 2025 yılı, yazılım geliştirmede vibe kodlama yaklaşımının filizlendiği dönem olarak öne çıkıyor.
 
 > **Lab Notu:** Yıllarca en verimli algoritmayı kendi elimizle yazmaya odaklandık; ancak bugün gerçek ustalığın, o algoritmayı en doğru şekilde yazması için yapay zekâyı yönlendirebilme vizyonunda yattığını anlıyoruz.
 
@@ -35,43 +35,50 @@ Bu sıçramanın ardındaki itici güç, genişleyen bağlam pencereleri ve "ak�
 
 ## "Vibe" Ne İfade Ediyor? Geçici Bir Trend mi, Yeni Bir Soyutlama mı?
 
-"Vibe", bir uygulamanın vermesini istediğiniz hissi ve davranışı temsil eder. Bu, **"nasıl yaparım"** odaklı programlamadan **"ne istiyorum"** odaklı tarza geçiştir. 
+İngilizce vibe kelimesi “hissetmek” veya “atmosfer” anlamlarına gelir. Vibe kodlama terimi de aslında bir uygulamanın vermesini istediğiniz hissi, davranışı ve görünümü AI aracılığıyla hayata geçirmeyi ima ediyor. Bu yaklaşımın özü, geleneksel **nasıl yaparım** odaklı programlama tarzından **ne istiyorum** odaklı tarza geçiştir. Bir başka deyişle, vibe kodlama yeni bir soyutlama katmanıdır; Geliştirici uygulamanın davranışını, estetiğini ve işlevselliğini doğal dil kullanarak tarif eder; yapay zekâ ajanları da bu tariften çalışır durumdaki kodu üretir. Nasıl ki yüksek seviyeli programlama dilleri makine koduna kıyasla geliştiriciye bir kolaylık sağladıysa, vibe kodlama da kod yazma işini soyutlayarak geliştiriciyi daha üst düzey bir role çıkarıyor. Vibe kodlamada hedef, uğraştırıcı kodlama detaylarını olabildiğince yapay zekâya devredip, geliştiricinin tasarım ve işlevsellik üzerine yoğunlaşabilmesidir. Diyelim bir web uygulamasının genel “hissiyatını” (vibe) kafanızda tasarladınız. Geleneksel yöntemle, bu vizyonu koda dökmek için saatlerce bileşen yapıları kurar, CSS ile stiller verirdiniz. Vibe kodlama yaklaşımında ise AI modeline ne istediğinizi anlatırsınız. Örneğin; "kullanıcı dostu, modern bir arayüze sahip zaman planlama uygulaması oluştur" diyebilirsiniz. YZ veya AI modeli bu isteği alıp arka planda gerekli tüm kod parçalarını üretmeye başlar. Burada soyutlama katmanı, kodun kendisinden doğal dil tanımına kaymıştır.
+
 
 ![Orkestra Şefi Metaforu](/static/vibe-coding-2.png)
 *Şema 2: İnsan vizyonu ile AI icrası arasındaki yeni iş birliği modeli.*
 
-Vibe Coding, geleneksel dillerin üzerinde yer alan yeni bir **soyutlama katmanıdır.** Nasıl ki yüksek seviyeli diller (Python, C++) makine kodunu soyutladıysa, Vibe Coding de kod yazma işini doğal dile soyutlar. Bu, üretkenlikte radikal bir artış sağlayan ve yapay zekâyı bir "ortak çalışan" haline getiren operasyonel bir gerçekliktir.
-
+Vibe Coding, geleneksel dillerin üzerinde yer alan yeni bir **soyutlama katmanıdır.** Nasıl ki yüksek seviyeli diller (Python, C++) makine kodunu soyutladıysa, Vibe Coding de kod yazma işini doğal dile soyutlar.
 ---
 
 ## Akademik Derinlik ve Pratik Hız Dengesi
 
-Vibe Coding, akademik birikimi çöpe atmak değil; onu bir **denetim mekanizmasına** dönüştürmektir. AI tuğlaları üst üste koyarken, duvarın doğru yerde yükseldiğinden emin olacak bir "mimar bakışına" ihtiyaç var.
+Elbette bu, geliştiricinin tamamen kenara çekilmesi demek değil. Aksine, geliştirici artık bir editör ve mimar rolüne bürünüyor. Öncelikle şunu netleştirelim: Vibe kodlama, akademik birikimi çöpe atmak anlamına gelmez. Tam tersine, bu yaklaşımı başarılı kılmak için geçmiş deneyimlerinize ve mühendislik sezginize her zamankinden fazla ihtiyaç var. AI’nin ürettiği çıktıları doğru yönlendirmek, değerlendirmek ve gerektiğinde düzeltmek için sağlam bir teknik arka plan şart. Bir benzetme yaparsak, eğer kod yazmak bir yapı inşa etmeye benziyorsa, vibe kodlamada AI sizin yerinize tuğlaları üst üste koyuyor. Ancak duvarın doğru yerde yükselmesi, sağlam olması ve plana uygun ilerlemesi için bir mimarın bakışı gerekiyor. Vibe kodlama bir trend değil, bir paradigma değişimidir. Yazılım geliştirmenin tarihi, makine dilinden assembly’e, oradan yüksek seviyeli dillere ve kütüphanelere doğru sürekli soyutlama katmanlarının yükselişine sahne oldu. Şimdi AI destekli vibe kodlama, bu tarihin bir sonraki bölümünü yazıyor.
 
-| AI'nın Rolü | İnsanın Rolü (Denetim) |
-| :--- | :--- |
-| Tekrarlayan kod üretimi | Kritik mimari kararlar |
-| Birim test yazımı | Güvenlik ve veri şifreleme |
-| Hata ayıklama (Debugging) | İş mantığı doğrulaması |
-
-Google’ın **DevOps (DORA)** araştırmaları, AI asistanlarını kontrolsüz kullanan takımların, sonrasında gelen teknik borç nedeniyle aslında daha yavaş teslimat yapabildiğini gösteriyor. Bu noktada insan kontrolü (Human-in-the-loop); mimari kararlar ve sürdürülebilirlik için vazgeçilmezdir.
 
 ---
 
+## Vibe Kodlamanın Araçları: Cursor, Claude ve Yeni Nesil Asistanlar
+
+Böylesi köklü bir değişim, beraberinde yeni araç ve platformların ortaya çıkışını getirdi. Vibe kodlama dendiğinde bugün öne çıkan birkaç isim var: Cursor, Claude Code (ve onun çizgisindeki Aider gibi CLI araçlar).
+
+
+- [Cursor](https://www.cursor.so): Cursor’ın yetenekleri arasında AI destekli kod tamamlama, hata giderme için otomatik kod yeniden yazma ve en önemlisi yakın zamanda eklenen “ajan modu” bulunuyor. Ajan modu, yapay zekânın tek bir komutla proje genelinde çok adımlı değişiklikler yapabilmesini sağlıyor: Örneğin bir fonksiyonun imzasını değiştirdiğinizde, Cursor bağlı tüm dosyalardaki kullanımları güncelleyebiliyor veya “bu sınıfa bir metod ekle” dediğinizde hem metodun tanımını hem de ilgili yerlerde çağrılarını ekleyebiliyor. 
+- [Claude Code](https://www.anthropic.com/index/introducing-claude): Komut satırını seven geliştiriciler için bu büyük bir artı, çünkü kendi alıştıkları akışa AI gücünü katabiliyorlar. Örneğin bir geliştirici, VS Code’da çalışırken yan ekranda açık bir terminalde Claude Code ile sohbet ederek kod üretebilir.
+- [Aider](https://github.com/paul-gauthier/aider): Claude ekosisteminde, resmi aracın yanı sıra Aider gibi toplum kaynaklı çözümler de bulunuyor. Aider, açık kaynaklı bir komut satırı AI kod asistanı olarak öne çıkıyor. Dosya analiz kabiliyeti yüksek gibi görünüyor.
+
+
+Şu an için vibe kodlama araç liderleri arasında Cursor ve Claude Code gibi isimler başı çekiyor diyebiliriz. Görünen o ki Claude, yüksek satırlık dev kod tabanlarında bile hataları bulup çözme, istenen özelliği proje genelinde doğru yerlere ekleme konularında dikkat çekici bir performans sergiliyor gibi görünüyor. Son zamanlarda Google, bulut tabanlı kodlama asistanı Project [Antigravity](https://antigravity.google/) ile AI ajanlarını güvenli bir ortamda çalıştırıp iş bittikten sonra geliştiriciye sonuçları sunma fikrini test ediyor.
+---
 ## Sonuç: Zihniyette Değişim
 
-Artık bir kod yazarı değil, bir orkestra şefisiniz. Kod satırları sizin şahsi notalarınız değil, AI’nın ellerindeki enstrümanlardır. Bu manifesto, Out of Scope AI Labs olarak bizim akademik birikimimizi bu yeni ustalık türüne nasıl yönlendirdiğimizin bir beyanıdır.
+Artık bir kod yazarı değil, bir orkestra şefisiniz. Kod satırları sizin şahsi notalarınız değil, AI’nın ellerindeki enstrümanlardır. Özetle, elinizde kullanabileceğiniz araçlar oldukça zengin ve her biri vibe kodlama felsefesini farklı bir açıdan destekliyor: İster tam entegre bir IDE kullanın, ister hafif bir komut satırı asistanı, doğal amaç AI ile birlikte daha üretken çalışmak. 
 
-**Gelecek Yazıda:** Cursor ve Claude Code ile "Ajan Modu"nu nasıl optimize ediyoruz? Bir production sistemini sadece niyet bildirerek nasıl ayağa kaldırırız? Teknik derinliği kaybetmeden hız kazanmanın pratik yollarını inceleyeceğiz.
+**Gelecek Yazıda:** Vibe Coding’i bir demo seviyesinden production seviyesine taşıyoruz. 
+Gerçek bir RAG sisteminin mimarisini katman katman inceleyecek; 
+ajan kullanımını, insan denetimini ve gözlemlenebilirliği (observability)  nasıl tasarladığımızı paylaşacağız. 
+AI ile sistem kurmak mümkün, ama nasıl?Teknik derinliği kaybetmeden hız kazanmanın pratik yollarını inceleyeceğiz.
 
 ---
 
-### Referanslar ve Okuma Listesi
-
-* [1] [Coder to Orchestrator: Future of Software Engineering](https://humanwhocodes.com/blog/2026/01/coder-orchestrator-future-software-engineering)
+### Referanslar 
+* [1] [From Coder to Orchestrator: The future of software engineering with AI](https://humanwhocodes.com/blog/2026/01/coder-orchestrator-future-software-engineering)
 * [2] [IEEE Spectrum: Best AI Coding Tools Guide](https://spectrum.ieee.org/best-ai-coding-tools)
-* [3] [Andrej Karpathy: Vibe Coding ve Yeni Paradigma](https://x.com/karpathy/status/1886192184808149383)
-* [4] [Thoughtworks: We Need to Talk About Vibe Coding](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/vibe-coding)
+* [3] [Thoughtworks: We Need to Talk About Vibe Coding](https://www.thoughtworks.com/en-us/insights/podcasts/technology-podcasts/vibe-coding)
+* [4] [AI to Code: The Definitive Guide to Winning AI Hackathons via Vibe Coding] (https://lablab.ai/blog/ai-to-code-winning-hackathons-guide)
 
 ---
 
